@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+
+{%if ImgList|length > 1%}
+    <div class="pictures">
+        {% for x in ImgList: %}
+        <div class="wrap">
+            <img src="{{ url_for('get_image', filename = x) }}" />
+        </div>
+        {% endfor %}
+    </div>
+{%else%}
+<!-- If the directory is empty then a message is displayed-->
+    <div class= "note">
+        <p>Image Directory Currently Empty, Please Upload an Image to View</p>   
+    </div>
+{%endif%}
+
+
+
+{% endblock%}
